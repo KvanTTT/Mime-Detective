@@ -19,7 +19,8 @@ namespace MimeDetective
         {
             types = new List<FileType> {PDF, WORD, EXCEL, JPEG, ZIP, RAR, RTF, PNG, PPT, GIF, DLL_EXE, MSDOC,
                 BMP, DLL_EXE, ZIP_7z, ZIP_7z_2, GZ_TGZ, TAR_ZH, TAR_ZV, OGG, ICO, XML, MIDI, FLV, WAVE, DWG, LIB_COFF, PST, PSD,
-                AES, SKR, SKR_2, PKR, EML_FROM, ELF, TXT_UTF8, TXT_UTF16_BE, TXT_UTF16_LE, TXT_UTF32_BE, TXT_UTF32_LE };
+                AES, SKR, SKR_2, PKR, EML_FROM, ELF, TXT_UTF8, TXT_UTF16_BE, TXT_UTF16_LE, TXT_UTF32_BE, TXT_UTF32_LE,
+                MP3, MP3_2, PDB };
         }
 
         #region Constants
@@ -103,6 +104,10 @@ namespace MimeDetective
         //MID, MIDI	 	Musical Instrument Digital Interface (MIDI) sound file
         public readonly static FileType MIDI = new FileType(new byte?[] { 0x4D, 0x54, 0x68, 0x64 }, "midi,mid", "audio/midi");
 
+        public readonly static FileType MP3 = new FileType(new byte?[] { 0xFF, 0xFB }, "mp3", "audio/mpeg");
+
+        public readonly static FileType MP3_2 = new FileType(new byte?[] { 0x49, 0x44, 0x33 }, "mp3", "audio/mpeg");
+
         //FLV	 	Flash video file
         public readonly static FileType FLV = new FileType(new byte?[] { 0x46, 0x4C, 0x56, 0x01 }, "flv", "application/unknown");
 
@@ -137,6 +142,7 @@ namespace MimeDetective
         //PKR	 	PGP public keyring file
         public readonly static FileType PKR = new FileType(new byte?[] { 0x99, 0x01 }, "pkr", "application/octet-stream");
 
+        public readonly static FileType PDB = new FileType(new byte?[] { 0x4D, 0x69, 0x63, 0x72, 0x6F, 0x73, 0x6F, 0x66, 0x74, 0x20, 0x43, 0x2F, 0x43, 0x2B, 0x2B, 0x20 }, "pdb", "application/pdb");
 
         #endregion
 
@@ -286,6 +292,7 @@ namespace MimeDetective
                     }
                 }
             }
+
             return fileType;
         }
 
